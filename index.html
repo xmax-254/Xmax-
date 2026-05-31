@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bramwel Mudoga — Affiliate Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a08;
+    --off-white: #f2ede6;
+    --cream: #e8e0d0;
+    --gold: #c8a84b;
+    --gold-light: #e8c96a;
+    --rust: #c44b2a;
+    --green: #2d5a27;
+    --green-light: #3d7a35;
+    --text-muted: #7a7260;
+    --border: rgba(200,168,75,0.2);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.35;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,8,0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--off-white); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 0.6rem 1.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(200,168,75,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(45,90,39,0.08) 0%, transparent 60%);
+  }
+
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,168,75,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 2rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin-bottom: 2rem;
+  }
+
+  h1 .accent { color: var(--gold); display: block; }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(242,237,230,0.6);
+    max-width: 420px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+  }
+
+  .btn-primary:hover::after { transform: translateX(0); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,168,75,0.3); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--off-white);
+    border: 1px solid rgba(242,237,230,0.2);
+    padding: 1rem 2.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding: 6rem 4rem 6rem 2rem;
+  }
+
+  .dashboard-card {
+    background: rgba(242,237,230,0.04);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    backdrop-filter: blur(4px);
+  }
+
+  .dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .live-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: #4ade80;
+    letter-spacing: 0.1em;
+  }
+
+  .live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .revenue-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .revenue-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .revenue-sub strong { color: #4ade80; }
+
+  .mini-bars {
+    display: flex;
+    gap: 4px;
+    align-items: flex-end;
+    height: 48px;
+    margin-bottom: 1.5rem;
+  }
+
+  .mini-bar {
+    flex: 1;
+    background: rgba(200,168,75,0.15);
+    border-radius: 2px 2px 0 0;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mini-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform-origin: bottom;
+    animation: barGrow 1s ease-out forwards;
+    animation-delay: calc(var(--i) * 0.05s);
+    transform: scaleY(0);
+  }
+
+  @keyframes barGrow { to { transform: scaleY(1); } }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--off-white);
+    letter-spacing: 0.04em;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* ─── TICKER ─── */
+  .ticker {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 0;
+    overflow: hidden;
+    position: relative;
+    background: rgba(200,168,75,0.03);
+  }
+
+  .ticker-inner {
+    display: flex;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: tickerMove 30s linear infinite;
+  }
+
+  @keyframes tickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .ticker-item strong { color: var(--gold); }
+  .ticker-item .up { color: #4ade80; }
+  .ticker-item .dot { color: var(--border); }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 7rem 4rem; position: relative; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 60px;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─── STATS STRIP ─── */
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    margin: 0 4rem;
+  }
+
+  .strip-stat {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .strip-stat:last-child { border-right: none; }
+
+  .strip-stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .strip-stat:hover::before { opacity: 1; }
+
+  .strip-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .strip-desc {
+    font-size: 0.82rem;
+    color: rgba(242,237,230,0.5);
+    line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+  }
+
+  .how-card {
+    background: rgba(242,237,230,0.03);
+    border: 1px solid var(--border);
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .how-card:hover { background: rgba(200,168,75,0.05); }
+
+  .how-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: rgba(200,168,75,0.08);
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .how-icon {
+    width: 48px; height: 48px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  .how-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.8rem;
+  }
+
+  .how-card p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(242,237,230,0.5);
+  }
+
+  /* ─── PROGRAMS ─── */
+  .programs-bg { background: rgba(242,237,230,0.015); }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .program-card {
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    position: relative;
+    transition: border-color 0.3s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .program-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+  .program-card.featured {
+    border-color: var(--gold);
+    background: rgba(200,168,75,0.05);
+  }
+
+  .program-badge {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    font-weight: 500;
+  }
+
+  .program-category {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .program-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.8rem;
+  }
+
+  .program-card p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(242,237,230,0.5);
+    margin-bottom: 1.5rem;
+  }
+
+  .program-rate {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .rate-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+
+  .rate-label { font-size: 0.78rem; color: var(--text-muted); }
+
+  .program-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .testimonial {
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '"';
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    color: var(--gold);
+    opacity: 0.12;
+    position: absolute;
+    top: 0.5rem; left: 1.5rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .testimonial p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(242,237,230,0.7);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    color: var(--gold);
+    background: rgba(200,168,75,0.08);
+    flex-shrink: 0;
+  }
+
+  .author-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .author-role {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .author-earnings {
+    margin-left: auto;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── CTA SECTION ─── */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(200,168,75,0.08) 0%, transparent 60%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 8rem 4rem;
+  }
+
+  .cta-section h2 { margin-bottom: 1rem; }
+  .cta-section p { color: rgba(242,237,230,0.5); max-width: 500px; margin: 0 auto 3rem; line-height: 1.7; }
+
+  .cta-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .email-input {
+    flex: 1;
+    background: rgba(242,237,230,0.05);
+    border: 1px solid var(--border);
+    color: var(--off-white);
+    padding: 1rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .email-input::placeholder { color: var(--text-muted); }
+  .email-input:focus { border-color: var(--gold); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 4rem;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-top: 1rem;
+    max-width: 280px;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+  }
+
+  .footer-logo span { color: var(--off-white); }
+
+  .footer-col h4 {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li {
+    margin-bottom: 0.7rem;
+  }
+
+  .footer-col a {
+    color: rgba(242,237,230,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-bottom p { font-size: 0.75rem; color: var(--text-muted); }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── PUBLIC LINK CARDS ─── */
+  .pub-link-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.5rem;
+    text-decoration: none;
+    background: rgba(242,237,230,0.02);
+    transition: border-color 0.25s, background 0.25s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .pub-link-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transition: transform 0.25s;
+    transform-origin: bottom;
+  }
+  .pub-link-card:hover { border-color: var(--gold); background: rgba(200,168,75,0.06); transform: translateX(4px); }
+  .pub-link-card:hover::before { transform: scaleY(1); }
+  .pub-link-featured { border-color: rgba(200,168,75,0.5); background: rgba(200,168,75,0.05); }
+  .pub-link-featured::before { transform: scaleY(1); }
+  .plc-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--gold);
+    flex-shrink: 0;
+    background: rgba(200,168,75,0.06);
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+  }
+  .plc-body { flex: 1; min-width: 0; }
+  .plc-title { font-size: 0.92rem; font-weight: 600; color: var(--off-white); letter-spacing: 0.02em; }
+  .plc-url { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; letter-spacing: 0.06em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .plc-arrow { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; opacity: 0.5; transition: opacity 0.2s, transform 0.2s; }
+  .pub-link-card:hover .plc-arrow { opacity: 1; transform: translateX(3px); }
+
+  /* ─── LOGO UPLOAD ─── */
+  .logo-upload-zone {
+    width: 160px; height: 160px;
+    border: 2px dashed var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s, border-color 0.2s;
+    background: rgba(200,168,75,0.04);
+  }
+  .logo-upload-zone:hover { background: rgba(200,168,75,0.1); }
+  .logo-upload-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .logo-upload-zone img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; }
+  .logo-upload-zone .upload-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 0 0.8rem;
+    pointer-events: none;
+  }
+  .logo-upload-icon { font-size: 1.8rem; color: var(--gold); opacity: 0.6; pointer-events: none; }
+
+  /* ─── VIDEO SECTION ─── */
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .video-slot {
+    border: 1px solid var(--border);
+    background: rgba(242,237,230,0.02);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .video-slot:hover { border-color: var(--gold); }
+  .video-slot .video-inner {
+    aspect-ratio: 16/9;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    background: rgba(242,237,230,0.02);
+    position: relative;
+  }
+  .video-slot .video-inner iframe,
+  .video-slot .video-inner video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .video-slot .video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    width: 100%;
+    height: 100%;
+  }
+  .video-play-icon {
+    width: 52px; height: 52px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.2rem;
+    padding-left: 4px;
+  }
+  .video-slot-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .video-url-input {
+    width: 100%;
+    background: rgba(10,10,8,0.8);
+    border: none;
+    border-top: 1px solid var(--border);
+    color: var(--off-white);
+    padding: 0.7rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .video-url-input::placeholder { color: var(--text-muted); }
+  .video-url-input:focus { border-top-color: var(--gold); }
+
+  /* ─── LINKS SECTION ─── */
+  .links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 3rem;
+    max-width: 700px;
+  }
+  .link-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--border);
+    padding: 1rem 1.2rem;
+    background: rgba(242,237,230,0.02);
+    transition: border-color 0.3s;
+  }
+  .link-row:hover { border-color: var(--gold); }
+  .link-icon-box {
+    width: 36px; height: 36px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  .link-inputs { display: flex; gap: 0.8rem; flex: 1; }
+  .link-text-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--off-white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 0;
+  }
+  .link-text-input::placeholder { color: var(--text-muted); font-size: 0.78rem; }
+  .link-text-input:focus { border-bottom-color: var(--gold); }
+  .link-url-input {
+    flex: 2;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--gold);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    padding: 0.3rem 0;
+    outline: none;
+    transition: border-color 0.2s;
+    min-width: 0;
+  }
+  .link-url-input::placeholder { color: var(--text-muted); }
+  .link-url-input:focus { border-bottom-color: var(--gold); }
+  .link-delete {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.2rem;
+    transition: color 0.2s;
+    flex-shrink: 0;
+  }
+  .link-delete:hover { color: #c44b2a; }
+  .add-link-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    border: 1px dashed var(--border);
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    margin-top: 0.4rem;
+    width: fit-content;
+  }
+  .add-link-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ─── BRANDING SECTION ─── */
+  .branding-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .stats-strip { grid-template-columns: 1fr 1fr; margin: 0 1.5rem; }
+    .how-grid, .programs-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+    .footer-bottom { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    .cta-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Profit<span>Axis</span></a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#links">Links</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#join" class="nav-cta">Start Earning</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-left">
+    <div class="hero-tag">Bramwel Mudoga</div>
+    <h1>
+      Turn Traffic
+      <span class="accent">Into Capital</span>
+    </h1>
+    <p class="hero-desc">
+      Join 40,000+ affiliates earning serious revenue through our performance-based network. Premium programs, real-time data, and commissions that compound.
+    </p>
+    <div class="hero-actions">
+      <a href="#join" class="btn-primary">Apply Now — Free</a>
+      <a href="#how" class="btn-ghost">See How</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="dashboard-card">
+      <div class="card-header">
+        <span class="card-title">Revenue Dashboard</span>
+        <span class="live-badge"><span class="live-dot"></span>Live</span>
+      </div>
+      <div class="revenue-big">$48,240</div>
+      <div class="revenue-sub">This month · <strong>↑ 34% vs last month</strong></div>
+      <div class="mini-bars">
+        <div class="mini-bar" style="--i:0; height:30%"></div>
+        <div class="mini-bar" style="--i:1; height:55%"></div>
+        <div class="mini-bar" style="--i:2; height:40%"></div>
+        <div class="mini-bar" style="--i:3; height:70%"></div>
+        <div class="mini-bar" style="--i:4; height:60%"></div>
+        <div class="mini-bar" style="--i:5; height:85%"></div>
+        <div class="mini-bar" style="--i:6; height:75%"></div>
+        <div class="mini-bar" style="--i:7; height:90%"></div>
+        <div class="mini-bar" style="--i:8; height:80%"></div>
+        <div class="mini-bar" style="--i:9; height:100%"></div>
+      </div>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-val">1,204</div>
+          <div class="stat-label">Conversions</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">$40</div>
+          <div class="stat-label">Avg EPC</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">8.3%</div>
+          <div class="stat-label">Conv. Rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item"><strong>SaaS</strong> — 40% recurring <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>Finance</strong> — $180 CPA <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>E-Commerce</strong> — 12% rev share <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>Health</strong> — $95 per sale <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>Education</strong> — 30% lifetime <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>Travel</strong> — 8% commissions <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <!-- Repeat for seamless loop -->
+    <span class="ticker-item"><strong>SaaS</strong> — 40% recurring <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>Finance</strong> — $180 CPA <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>E-Commerce</strong> — 12% rev share <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>Health</strong> — $95 per sale <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>Education</strong> — 30% lifetime <span class="up">↑</span></span>
+    <span class="ticker-item dot">·</span>
+    <span class="ticker-item"><strong>Travel</strong> — 8% commissions <span class="up">↑</span></span>
+  </div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip fade-up">
+  <div class="strip-stat">
+    <span class="strip-num">$2.4B</span>
+    <div class="strip-desc">Total commissions paid out to affiliates since 2018</div>
+  </div>
+  <div class="strip-stat">
+    <span class="strip-num">40K+</span>
+    <div class="strip-desc">Active affiliates across 120 countries worldwide</div>
+  </div>
+  <div class="strip-stat">
+    <span class="strip-num">850+</span>
+    <div class="strip-desc">Premium advertiser programs across every niche</div>
+  </div>
+  <div class="strip-stat">
+    <span class="strip-num">98.2%</span>
+    <div class="strip-desc">On-time payment rate with weekly payouts available</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-label">Process</div>
+  <h2>How You<br>Start Earning</h2>
+
+  <div class="how-grid">
+    <div class="how-card fade-up">
+      <div class="how-num">01</div>
+      <div class="how-icon">◈</div>
+      <h3>Apply & Get Approved</h3>
+      <p>Submit your application in 5 minutes. Our team reviews your traffic sources and approves most affiliates within 24 hours. No minimum traffic requirements to start.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="how-num">02</div>
+      <div class="how-icon">◎</div>
+      <h3>Choose Your Programs</h3>
+      <p>Browse 850+ curated programs filtered by niche, commission type, and EPC. Access exclusive deals not available on any other network, with rates up to 40% recurring.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="how-num">03</div>
+      <div class="how-icon">◉</div>
+      <h3>Drive & Track</h3>
+      <p>Use your custom tracking links across any channel — content, paid media, email, social. Real-time analytics show exactly which placements convert and at what rate.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="how-num">04</div>
+      <div class="how-icon">⊕</div>
+      <h3>Scale With Data</h3>
+      <p>Leverage our AI-powered optimization suggestions to identify your highest-value segments. Top affiliates double their EPC within 90 days using our insights engine.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="how-num">05</div>
+      <div class="how-icon">⊞</div>
+      <h3>Get Paid Weekly</h3>
+      <p>Net-7 payouts via bank transfer, PayPal, or crypto. No payment thresholds to worry about — earn $1 and we'll send it. Bonuses kick in at key monthly milestones.</p>
+    </div>
+    <div class="how-card fade-up">
+      <div class="how-num">06</div>
+      <div class="how-icon">◬</div>
+      <h3>Grow Your Network</h3>
+      <p>Recruit sub-affiliates and earn 5% on their commissions for life. Our two-tier structure means your income compounds as your network grows — no caps, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="programs-bg">
+  <div class="section-label">Top Programs</div>
+  <h2>Premium<br>Affiliate Offers</h2>
+
+  <div class="programs-grid">
+    <div class="program-card fade-up">
+      <div class="program-category">SaaS / B2B</div>
+      <h3>CloudDesk Pro</h3>
+      <p>Project management SaaS with 94% retention rate. Promote to business audiences and earn recurring commissions on every monthly renewal.</p>
+      <div class="program-rate">
+        <span class="rate-num">40%</span>
+        <span class="rate-label">/ recurring monthly</span>
+      </div>
+      <div class="program-tags">
+        <span class="tag">Recurring</span>
+        <span class="tag">Cookie: 90d</span>
+        <span class="tag">EPC: $68</span>
+      </div>
+    </div>
+
+    <div class="program-card featured fade-up">
+      <div class="program-badge">Top Earner</div>
+      <div class="program-category">Finance / Fintech</div>
+      <h3>NovaTrade</h3>
+      <p>Online brokerage platform with a $180 CPA for funded accounts. One of the highest-paying finance programs in the network with low churn.</p>
+      <div class="program-rate">
+        <span class="rate-num">$180</span>
+        <span class="rate-label">/ funded account</span>
+      </div>
+      <div class="program-tags">
+        <span class="tag">CPA</span>
+        <span class="tag">Cookie: 60d</span>
+        <span class="tag">EPC: $120</span>
+      </div>
+    </div>
+
+    <div class="program-card fade-up">
+      <div class="program-category">Health & Wellness</div>
+      <h3>VitaCore</h3>
+      <p>DTC supplement brand with strong social proof and high repeat purchase rates. Subscription upsell earns you ongoing commissions on retained customers.</p>
+      <div class="program-rate">
+        <span class="rate-num">$95</span>
+        <span class="rate-label">/ first sale + 15% recurring</span>
+      </div>
+      <div class="program-tags">
+        <span class="tag">Hybrid</span>
+        <span class="tag">Cookie: 45d</span>
+        <span class="tag">EPC: $44</span>
+      </div>
+    </div>
+
+    <div class="program-card fade-up">
+      <div class="program-category">E-Learning</div>
+      <h3>SkillForge Academy</h3>
+      <p>Online course platform with 500+ professional courses. High conversion rates from warm audiences with an average cart value of $320.</p>
+      <div class="program-rate">
+        <span class="rate-num">30%</span>
+        <span class="rate-label">/ sale (lifetime value)</span>
+      </div>
+      <div class="program-tags">
+        <span class="tag">Rev Share</span>
+        <span class="tag">Cookie: 120d</span>
+        <span class="tag">EPC: $96</span>
+      </div>
+    </div>
+
+    <div class="program-card fade-up">
+      <div class="program-category">E-Commerce / DTC</div>
+      <h3>Meridian Home</h3>
+      <p>Premium home goods brand with $200+ AOV. Perfect for lifestyle, interior design, and home content creators. Custom creatives available on request.</p>
+      <div class="program-rate">
+        <span class="rate-num">12%</span>
+        <span class="rate-label">/ sale revenue</span>
+      </div>
+      <div class="program-tags">
+        <span class="tag">Rev Share</span>
+        <span class="tag">Cookie: 30d</span>
+        <span class="tag">EPC: $28</span>
+      </div>
+    </div>
+
+    <div class="program-card fade-up">
+      <div class="program-category">Travel / Hospitality</div>
+      <h3>LuxStay Hotels</h3>
+      <p>Boutique hotel booking platform operating in 40+ countries. Seasonal bonuses spike commissions during peak booking windows in Q2 and Q4.</p>
+      <div class="program-rate">
+        <span class="rate-num">8%</span>
+        <span class="rate-label">/ booking + bonuses</span>
+      </div>
+      <div class="program-tags">
+        <span class="tag">Rev Share</span>
+        <span class="tag">Cookie: 21d</span>
+        <span class="tag">EPC: $52</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="results">
+  <div class="section-label">Social Proof</div>
+  <h2>Affiliates<br>Talking Numbers</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial fade-up">
+      <p>Switched from three different networks to ProfitAxis and my monthly revenue doubled within 90 days. The real-time tracking data is genuinely best-in-class. I can see exactly what's working and cut what isn't, same day.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MR</div>
+        <div>
+          <div class="author-name">Marcus R.</div>
+          <div class="author-role">SEO Affiliate · Finance Niche</div>
+        </div>
+        <div class="author-earnings">$22K/mo</div>
+      </div>
+    </div>
+    <div class="testimonial fade-up">
+      <p>I was skeptical at first — I'd been burned by late payments before. Six months in, not a single issue. Payments hit every Thursday, my account manager actually responds, and the SaaS program commissions keep compounding month over month.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">SL</div>
+        <div>
+          <div class="author-name">Sophie L.</div>
+          <div class="author-role">Content Creator · SaaS Niche</div>
+        </div>
+        <div class="author-earnings">$8.4K/mo</div>
+      </div>
+    </div>
+    <div class="testimonial fade-up">
+      <p>The sub-affiliate tier changed everything for me. I brought in 12 affiliates over six months and now their activity adds 20% on top of my own commissions without me lifting a finger. The network compounds your work.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">JK</div>
+        <div>
+          <div class="author-name">James K.</div>
+          <div class="author-role">Paid Media Affiliate</div>
+        </div>
+        <div class="author-earnings">$61K/mo</div>
+      </div>
+    </div>
+    <div class="testimonial fade-up">
+      <p>Went from $900/month to $14,000/month in under a year. The AI optimization suggestions sound gimmicky, but they genuinely surfaced a segment I was ignoring that now accounts for 40% of my revenue. Worth trying everything they suggest.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AP</div>
+        <div>
+          <div class="author-name">Aisha P.</div>
+          <div class="author-role">Email Marketer · Health Niche</div>
+        </div>
+        <div class="author-earnings">$14K/mo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="join">
+  <div class="section-label" style="justify-content: center; margin-bottom: 2rem;">Join the Network</div>
+  <h2>Ready to Scale<br>Your Revenue?</h2>
+  <p>Free to join. No traffic minimums. Start accessing premium programs and earning commissions in 24 hours.</p>
+  <div class="cta-form">
+    <input type="email" class="email-input" placeholder="your@email.com">
+    <a href="#" class="btn-primary">Get Access</a>
+  </div>
+</section>
+
+<!-- BRANDING / LOGO -->
+<section id="branding" style="padding:6rem 4rem; border-top:1px solid var(--border);">
+  <div class="section-label">Brand Identity</div>
+  <h2>Your Logo</h2>
+  <div class="branding-grid">
+    <div>
+      <div class="logo-upload-zone" id="logoZone" title="Click to upload logo">
+        <input type="file" accept="image/*" id="logoInput" onchange="previewLogo(event)">
+        <span class="logo-upload-icon" id="logoIcon">⊕</span>
+        <span class="upload-hint" id="logoHint">Click to upload<br>your logo</span>
+      </div>
+      <p style="font-size:0.7rem;color:var(--text-muted);margin-top:0.7rem;font-family:'DM Mono',monospace;letter-spacing:0.08em;">PNG, SVG, JPG · Max 5MB</p>
+    </div>
+    <div>
+      <p style="font-size:0.95rem;color:rgba(242,237,230,0.6);line-height:1.8;max-width:480px;">Upload your brand logo here. It will appear in the navigation bar and throughout the site. Recommended size: 200×60px or larger. SVG format preferred for crisp rendering at all sizes.</p>
+      <div style="margin-top:1.5rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
+        <button onclick="document.getElementById('logoInput').click()" style="background:var(--gold);color:var(--black);border:none;padding:0.7rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">Upload Logo</button>
+        <button onclick="removeLogo()" style="background:transparent;color:var(--text-muted);border:1px solid var(--border);padding:0.7rem 1.5rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(200,168,75,0.2)';this.style.color='var(--text-muted)'">Remove</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="media" style="padding:6rem 4rem; border-top:1px solid var(--border);">
+  <div class="section-label">Media</div>
+  <h2>Videos &amp;<br>Presentations</h2>
+  <p style="color:rgba(242,237,230,0.5);font-size:0.95rem;max-width:520px;line-height:1.7;margin-top:0.5rem;">Paste a YouTube, Vimeo, or direct video URL below each slot to embed your content. Great for demos, tutorials, or promotional videos.</p>
+
+  <div class="video-grid" id="videoGrid">
+
+    <div class="video-slot">
+      <div class="video-inner" id="vslot0">
+        <div class="video-placeholder">
+          <div class="video-play-icon">▶</div>
+          <span class="video-slot-label">Video 01</span>
+        </div>
+      </div>
+      <input class="video-url-input" placeholder="Paste YouTube / Vimeo / video URL here…" oninput="embedVideo(this, 'vslot0')">
+    </div>
+
+    <div class="video-slot">
+      <div class="video-inner" id="vslot1">
+        <div class="video-placeholder">
+          <div class="video-play-icon">▶</div>
+          <span class="video-slot-label">Video 02</span>
+        </div>
+      </div>
+      <input class="video-url-input" placeholder="Paste YouTube / Vimeo / video URL here…" oninput="embedVideo(this, 'vslot1')">
+    </div>
+
+    <div class="video-slot">
+      <div class="video-inner" id="vslot2">
+        <div class="video-placeholder">
+          <div class="video-play-icon">▶</div>
+          <span class="video-slot-label">Video 03</span>
+        </div>
+      </div>
+      <input class="video-url-input" placeholder="Paste YouTube / Vimeo / video URL here…" oninput="embedVideo(this, 'vslot2')">
+    </div>
+
+  </div>
+
+  <button onclick="addVideoSlot()" style="margin-top:1.5rem;display:flex;align-items:center;gap:0.6rem;background:transparent;border:1px dashed var(--border);color:var(--text-muted);font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.8rem 1.4rem;cursor:pointer;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'" onmouseout="this.style.borderColor='rgba(200,168,75,0.2)';this.style.color='var(--text-muted)'">⊕ &nbsp;Add Video Slot</button>
+</section>
+
+<!-- LINKS -->
+<section id="links" style="padding:6rem 4rem; border-top:1px solid var(--border);">
+  <div class="section-label">Resources</div>
+  <h2>Bramwel's<br>Links</h2>
+  <p style="color:rgba(242,237,230,0.5);font-size:0.95rem;max-width:520px;line-height:1.7;margin-top:0.5rem;">Everything you need in one place — click any card to visit the link directly.</p>
+
+  <!-- PUBLIC LINK CARDS -->
+  <div id="linkCards" style="display:flex;flex-direction:column;gap:1rem;margin-top:2.5rem;max-width:680px;">
+
+    <a href="https://profitaxis.com" target="_blank" rel="noopener" class="pub-link-card">
+      <div class="plc-icon">🌐</div>
+      <div class="plc-body">
+        <div class="plc-title">ProfitAxis Website</div>
+        <div class="plc-url">profitaxis.com</div>
+      </div>
+      <div class="plc-arrow">→</div>
+    </a>
+
+    <a href="mailto:mudogabramwel@gmail.com" class="pub-link-card">
+      <div class="plc-icon">✉</div>
+      <div class="plc-body">
+        <div class="plc-title">Email Bramwel</div>
+        <div class="plc-url">mudogabramwel@gmail.com</div>
+      </div>
+      <div class="plc-arrow">→</div>
+    </a>
+
+    <a href="tel:0723246065" class="pub-link-card">
+      <div class="plc-icon">✆</div>
+      <div class="plc-body">
+        <div class="plc-title">Call / WhatsApp</div>
+        <div class="plc-url">0723 246 065</div>
+      </div>
+      <div class="plc-arrow">→</div>
+    </a>
+
+    <a href="https://linkedin.com/in/bramwelmudoga" target="_blank" rel="noopener" class="pub-link-card">
+      <div class="plc-icon">in</div>
+      <div class="plc-body">
+        <div class="plc-title">LinkedIn — Bramwel Mudoga</div>
+        <div class="plc-url">linkedin.com/in/bramwelmudoga</div>
+      </div>
+      <div class="plc-arrow">→</div>
+    </a>
+
+    <a href="#join" class="pub-link-card pub-link-featured">
+      <div class="plc-icon">⊕</div>
+      <div class="plc-body">
+        <div class="plc-title">Join the Affiliate Network</div>
+        <div class="plc-url">Free sign-up · Start earning today</div>
+      </div>
+      <div class="plc-arrow">→</div>
+    </a>
+
+    <!-- Dynamic extra links added by user -->
+    <div id="extraLinkCards"></div>
+  </div>
+
+  <!-- ADMIN: add more links -->
+  <details style="margin-top:2.5rem;max-width:680px;">
+    <summary style="font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;padding:0.6rem 0;list-style:none;display:flex;align-items:center;gap:0.6rem;">
+      <span style="color:var(--gold);">⊕</span> Add / Edit Links
+    </summary>
+    <div style="margin-top:1.2rem;border:1px solid var(--border);padding:1.5rem;background:rgba(242,237,230,0.02);">
+      <div class="links-grid" id="linksGrid" style="max-width:100%;"></div>
+      <button class="add-link-btn" onclick="addLinkRow()" style="margin-top:1rem;">⊕ &nbsp;Add New Link</button>
+      <button onclick="publishLinks()" style="margin-top:1rem;margin-left:0.8rem;background:var(--gold);color:var(--black);border:none;padding:0.7rem 1.6rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;">Publish Links</button>
+    </div>
+  </details>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:6rem 4rem; border-top:1px solid var(--border);">
+  <div class="section-label">Get In Touch</div>
+  <h2>Contact<br>Bramwel Mudoga</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:3rem; max-width:700px;">
+    <a href="mailto:mudogabramwel@gmail.com" class="fade-up" style="display:flex; align-items:center; gap:1.2rem; border:1px solid var(--border); padding:2rem; text-decoration:none; transition:border-color 0.3s, transform 0.2s; background:rgba(242,237,230,0.02);" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(200,168,75,0.2)';this.style.transform='translateY(0)'">
+      <div style="width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gold);flex-shrink:0;">✉</div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;">Email</div>
+        <div style="color:var(--off-white);font-size:0.88rem;font-weight:500;">mudogabramwel@gmail.com</div>
+      </div>
+    </a>
+    <a href="tel:0723246065" class="fade-up" style="display:flex; align-items:center; gap:1.2rem; border:1px solid var(--border); padding:2rem; text-decoration:none; transition:border-color 0.3s, transform 0.2s; background:rgba(242,237,230,0.02);" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(200,168,75,0.2)';this.style.transform='translateY(0)'">
+      <div style="width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gold);flex-shrink:0;">✆</div>
+      <div>
+        <div style="font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.4rem;">Phone</div>
+        <div style="color:var(--off-white);font-size:0.88rem;font-weight:500;">0723 246 065</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">Profit<span>Axis</span></div>
+    <p style="font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:0.06em; color:var(--off-white); margin-top:0.8rem; margin-bottom:0.4rem;">Bramwel Mudoga</p>
+    <p>The performance marketing network built for affiliates who take their income seriously. 850+ programs, weekly payouts, real data.</p>
+    <div style="margin-top:1.2rem; display:flex; flex-direction:column; gap:0.5rem;">
+      <a href="mailto:mudogabramwel@gmail.com" style="display:flex; align-items:center; gap:0.6rem; color:var(--gold); text-decoration:none; font-size:0.82rem; font-family:'DM Mono',monospace; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+        <span style="color:var(--text-muted);">✉</span> mudogabramwel@gmail.com
+      </a>
+      <a href="tel:0723246065" style="display:flex; align-items:center; gap:0.6rem; color:var(--gold); text-decoration:none; font-size:0.82rem; font-family:'DM Mono',monospace; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+        <span style="color:var(--text-muted);">✆</span> 0723 246 065
+      </a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Platform</h4>
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Programs</a></li>
+      <li><a href="#">Analytics</a></li>
+      <li><a href="#">Payouts</a></li>
+      <li><a href="#">Sub-Affiliates</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Press</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Legal</h4>
+    <ul>
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Cookie Policy</a></li>
+      <li><a href="#">Affiliate Agreement</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="footer-bottom">
+  <p>© 2026 Bramwel Mudoga · ProfitAxis. All rights reserved.</p>
+  <p>📧 <a href="mailto:mudogabramwel@gmail.com" style="color:var(--gold); text-decoration:none;">mudogabramwel@gmail.com</a> &nbsp;·&nbsp; 📞 <a href="tel:0723246065" style="color:var(--gold); text-decoration:none;">0723 246 065</a></p>
+</div>
+
+<script>
+  // ─── LOGO PREVIEW ───
+  function previewLogo(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const zone = document.getElementById('logoZone');
+      document.getElementById('logoIcon').style.display = 'none';
+      document.getElementById('logoHint').style.display = 'none';
+      let img = zone.querySelector('img');
+      if (!img) { img = document.createElement('img'); zone.appendChild(img); }
+      img.src = ev.target.result;
+      // Also update nav logo area
+      const navLogo = document.querySelector('.nav-logo');
+      navLogo.innerHTML = '';
+      const navImg = document.createElement('img');
+      navImg.src = ev.target.result;
+      navImg.style.cssText = 'height:36px;width:auto;object-fit:contain;';
+      navLogo.appendChild(navImg);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function removeLogo() {
+    const zone = document.getElementById('logoZone');
+    const img = zone.querySelector('img');
+    if (img) img.remove();
+    document.getElementById('logoIcon').style.display = '';
+    document.getElementById('logoHint').style.display = '';
+    document.getElementById('logoInput').value = '';
+    document.querySelector('.nav-logo').innerHTML = 'Profit<span>Axis</span>';
+  }
+
+  // ─── VIDEO EMBED ───
+  let videoSlotCount = 3;
+
+  function getEmbedUrl(url) {
+    url = url.trim();
+    // YouTube
+    const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+    if (yt) return `https://www.youtube.com/embed/${yt[1]}?autoplay=0&rel=0`;
+    // Vimeo
+    const vim = url.match(/vimeo\.com\/(\d+)/);
+    if (vim) return `https://player.vimeo.com/video/${vim[1]}`;
+    // Direct video
+    if (/\.(mp4|webm|ogg)(\?.*)?$/i.test(url)) return null; // use <video>
+    return null;
+  }
+
+  function embedVideo(input, slotId) {
+    const url = input.value.trim();
+    const slot = document.getElementById(slotId);
+    // Remove existing media
+    slot.querySelectorAll('iframe, video').forEach(el => el.remove());
+    const placeholder = slot.querySelector('.video-placeholder');
+
+    if (!url) { if (placeholder) placeholder.style.display = 'flex'; return; }
+
+    const embedUrl = getEmbedUrl(url);
+    if (embedUrl) {
+      if (placeholder) placeholder.style.display = 'none';
+      const iframe = document.createElement('iframe');
+      iframe.src = embedUrl;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      slot.appendChild(iframe);
+    } else if (/\.(mp4|webm|ogg)(\?.*)?$/i.test(url)) {
+      if (placeholder) placeholder.style.display = 'none';
+      const vid = document.createElement('video');
+      vid.src = url; vid.controls = true;
+      slot.appendChild(vid);
+    }
+  }
+
+  function addVideoSlot() {
+    const grid = document.getElementById('videoGrid');
+    const id = `vslot${videoSlotCount++}`;
+    const num = String(videoSlotCount).padStart(2, '0');
+    const div = document.createElement('div');
+    div.className = 'video-slot';
+    div.innerHTML = `
+      <div class="video-inner" id="${id}">
+        <div class="video-placeholder">
+          <div class="video-play-icon">▶</div>
+          <span class="video-slot-label">Video ${num}</span>
+        </div>
+      </div>
+      <input class="video-url-input" placeholder="Paste YouTube / Vimeo / video URL here…" oninput="embedVideo(this, '${id}')">
+    `;
+    grid.appendChild(div);
+  }
+
+  // ─── LINKS ───
+  const icons = ['⊞','◈','◎','◉','◬','⊕','◑','◐'];
+  let linkCount = 0;
+
+  function addLinkRow() {
+    const grid = document.getElementById('linksGrid');
+    const icon = icons[linkCount % icons.length];
+    linkCount++;
+    const row = document.createElement('div');
+    row.className = 'link-row';
+    row.innerHTML = `
+      <div class="link-icon-box">${icon}</div>
+      <div class="link-inputs">
+        <input class="link-text-input" placeholder="Link label…">
+        <input class="link-url-input" placeholder="https://…">
+      </div>
+      <button class="link-delete" onclick="this.closest('.link-row').remove()" title="Remove">✕</button>
+    `;
+    grid.appendChild(row);
+    row.querySelector('.link-text-input').focus();
+  }
+
+  function publishLinks() {
+    const rows = document.querySelectorAll('#linksGrid .link-row');
+    const container = document.getElementById('extraLinkCards');
+    container.innerHTML = '';
+    rows.forEach(row => {
+      const label = row.querySelector('.link-text-input').value.trim();
+      const url = row.querySelector('.link-url-input').value.trim();
+      if (!label && !url) return;
+      const a = document.createElement('a');
+      a.href = url || '#';
+      if (url && url.startsWith('http')) { a.target = '_blank'; a.rel = 'noopener'; }
+      a.className = 'pub-link-card';
+      a.style.marginTop = '0';
+      a.innerHTML = `
+        <div class="plc-icon">◈</div>
+        <div class="plc-body">
+          <div class="plc-title">${label || url}</div>
+          <div class="plc-url">${url}</div>
+        </div>
+        <div class="plc-arrow">→</div>
+      `;
+      container.appendChild(a);
+    });
+    // flash confirm
+    const btn = event.target;
+    btn.textContent = '✓ Published!';
+    btn.style.background = '#4ade80';
+    setTimeout(() => { btn.textContent = 'Publish Links'; btn.style.background = 'var(--gold)'; }, 2000);
+  }
+
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 0);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 3) * 0.1}s`;
+    observer.observe(el);
+  });
+
+  // Animate revenue counter
+  const revenueEl = document.querySelector('.revenue-big');
+  if (revenueEl) {
+    let start = 45000;
+    let end = 48240;
+    let current = start;
+    const step = () => {
+      current = Math.min(current + Math.floor(Math.random() * 80 + 20), end);
+      revenueEl.textContent = '$' + current.toLocaleString();
+      if (current < end) setTimeout(step, 80);
+    };
+    setTimeout(step, 1200);
+  }
+</script>
+
+</body>
+</html>
